@@ -20,7 +20,7 @@ const (
 //
 // Time(someT) -> "3 weeks ago"
 func Time(then time.Time) string {
-	return RelTime(then, time.Now(), "ago", "from now")
+	return RelTime(then, time.Now(), "", "from now")
 }
 
 // A RelTimeMagnitude struct contains a relative time point at which
@@ -46,21 +46,21 @@ type RelTimeMagnitude struct {
 
 var defaultMagnitudes = []RelTimeMagnitude{
 	{time.Second, "now", time.Second},
-	{2 * time.Second, "1 second %s", 1},
-	{time.Minute, "%d seconds %s", time.Second},
-	{2 * time.Minute, "1 minute %s", 1},
-	{time.Hour, "%d minutes %s", time.Minute},
-	{2 * time.Hour, "1 hour %s", 1},
-	{Day, "%d hours %s", time.Hour},
-	{2 * Day, "1 day %s", 1},
-	{Week, "%d days %s", Day},
-	{2 * Week, "1 week %s", 1},
-	{Month, "%d weeks %s", Week},
-	{2 * Month, "1 month %s", 1},
-	{Year, "%d months %s", Month},
-	{18 * Month, "1 year %s", 1},
-	{2 * Year, "2 years %s", 1},
-	{LongTime, "%d years %s", Year},
+	{2 * time.Second, "1 s", 1},
+	{time.Minute, "%d s", time.Second},
+	{2 * time.Minute, "1 min", 1},
+	{time.Hour, "%d mins", time.Minute},
+	{2 * time.Hour, "1 hr", 1},
+	{Day, "%d hrs", time.Hour},
+	{2 * Day, "1 d", 1},
+	{Week, "%d d", Day},
+	{2 * Week, "1 wk", 1},
+	{Month, "%d wks", Week},
+	{2 * Month, "1 mth", 1},
+	{Year, "%d mths", Month},
+	{18 * Month, "1 yr", 1},
+	{2 * Year, "2 yrs", 1},
+	{LongTime, "%d yrs", Year},
 	{math.MaxInt64, "a long while %s", 1},
 }
 
